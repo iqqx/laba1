@@ -1,0 +1,16 @@
+html
+    head
+        title="Дела"
+        style
+            include todolist.css
+    body
+        ul
+            each todo in todolist
+                li
+                    p= todo.Title
+                    form(action="/todo/complete" method="POST")
+                        label(for="123") Выполнено
+                        input(name="123" type="checkbox" onChange="this.form.submit()" checked = todo.Completed ? "" : null)
+                    form
+                        label(type="hidden" value=todo.Id)
+                        button удалить
